@@ -1,0 +1,34 @@
+<table class="table" border="1">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Defend</th>
+      <th scope="col">Speed</th>
+      <th scope="col">Price</th>
+      <th scope="col" class=" text-center">Img</th>
+      <th scope="col" colspan="2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Student of Student">
+      <td>{{Student.id}}</td>
+      <td>
+        <app-table [Name]="Student.name"></app-table>
+      </td>
+      <!-- [tên] = " giá trị "; -->
+      <td *ngIf="Student.status === 1 " class="color-blue">yes</td>
+      <td *ngIf="Student.status === 0" class="color-red">No</td>
+      <td *ngIf="Student.speed > 500 " class="text-danger">{{Student.speed}}</td>
+      <td *ngIf="Student.speed < 500 " class="text-warning">{{Student.speed}}</td>
+
+      <td class="color-blue">{{Student.price}}</td>
+      <td class=" color-red text-center"> 
+        <img *ngIf="Student.price > 1000" src="{{Student.img}}" class="border border-warning w-25 border-4" alt="">
+        <img *ngIf="Student.price < 1000" src="{{Student.img}}" class="border border-warning w-25" alt="">
+      </td>
+      <td> <button class=" btn btn-success"> Edit</button></td>
+      <td> <button class=" btn btn-danger"> Remove</button></td>
+    </tr>
+  </tbody>
+</table>
