@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./condition1.component.css']
 })
 export class Condition1Component implements OnInit {
-  @Input('student') Student: any;
+ @Input() Speed :any;
   constructor() { }
 
   ngOnInit(): void {
