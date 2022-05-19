@@ -10,6 +10,9 @@ import { NameComponent } from './name/name.component';
 import { IdentityComponent } from './identity/identity.component';
 import { Condition1Component } from './lab1/condition1/condition1.component';
 import { Condition2Component } from './lab1/condition2/condition2.component';
+import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
+import { ValidateComponent } from './compnent/validate/validate.component'; // import form
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { Condition2Component } from './lab1/condition2/condition2.component';
     NameComponent,
     IdentityComponent,
     Condition1Component,
-    Condition2Component
+    Condition2Component,
+    FormComponent,
+    ValidateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

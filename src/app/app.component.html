@@ -1,5 +1,33 @@
 <div class="container">
   <h1> Danh sách</h1>
-  <h3>Name:<app-name [name]= "Person"></app-name></h3>
-  <app-table2 [students] = "Student"></app-table2> 
+  <h3>Name:<app-name [name]="Person"></app-name>
+  </h3>
+  <button class=" btn btn-warning m-3" (click)="ClickBtn()">
+    {{show ? 'ẩn dữ liệu' : 'hiện dữ liệu '}}
+  </button>
+  <div>
+    <h5> Angular Form</h5>
+    <app-form></app-form>
+  </div>
+  <h5>Form 2</h5>
+  <div class="m-3 text-center">
+
+      <div class="mt-3">
+        <label for="" class="mx-3"> Name</label>
+        <input type="text" id="input"  (input)="OnInput($event, 'name')" [value]="InputValue.name">
+      </div>
+      <div class="mt-3">
+        <label for="" class="mx-3"> Avatar</label>
+        <input type="text" id="input2"  (input)="OnInput($event, 'Img')" [value]="InputValue.Img">
+      </div>
+      <div class="mt-3">
+        <label for="" class="mx-3"> Defend</label>
+        <input type="text" id="input2"  (input)="OnInput($event, 'speed')" [value]="InputValue.speed">
+      </div>
+      <button class=" btn btn-success mt-3" (click)="Onsubmit()"> Submit</button>
+    
+  </div>
+  <app-table2 [students]="Student" *ngIf="show"></app-table2>
+  <!-- <app-table2 [students] = "Student" class="{{show ? 'db' : 'dn'}}"></app-table2>  -->
+
 </div>
