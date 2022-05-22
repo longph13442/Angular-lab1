@@ -7,16 +7,17 @@
 <p>{{userForm.valid | json}}</p> 
 <!-- show dữ liệu và chuyển qua dạng chuỗi. -->
 <div class="w-50 mx-auto my-5" >
-    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Username</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" [(ngModel)]="inputValue.name" required minlength="4" maxlength="32" #name="ngModel">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="name" [(ngModel)]="inputValue.name" required minlength="4" maxlength="32" #name="ngModel" [value] = "inputValue.name">
+            <!-- <input type="text" name="Id" id="" [(ngModel)]="inputValue.id" [value]="inputValue.id"> -->
             <app-validate [field] = "name" key= "Name"></app-validate>
             <!-- <span *ngIf="name.dirty && name.errors?.['required']" class="text-danger">Không được để trống ! </span> -->
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="inputValue.password" required min="6" max="12" #password="ngModel">
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password" [(ngModel)]="inputValue.password" required min="6" max="12" #password="ngModel" [value] = "inputValue.password">
             <app-validate [field]="password" key="Password"></app-validate>
             <!-- <span *ngIf="min.errors?.['minlength']" class="text-danger">Nhập trên 6 kí tự </span> -->
         </div>
@@ -51,7 +52,7 @@
                 <td>Mark</td>
                 <td>Mark</td>
                 <td><button class="btn btn-danger" (click) = "onRemove(User.id)">Remove</button></td>
-                <td><a href=""><button class="btn btn-success">Edit</button></a></td>
+                <td><button class="btn btn-success" (click) = onEdit(User.id)>Edit</button></td>
               </tr>
               
             </tbody>

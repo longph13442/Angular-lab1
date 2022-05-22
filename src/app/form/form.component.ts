@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -13,6 +14,7 @@ export class FormComponent implements OnInit {
   }
   inputValue =
     {
+      
       name: "",
       password: ""
     }
@@ -24,28 +26,45 @@ export class FormComponent implements OnInit {
       password: "12345667890"
     }
   ]
-  onSubmit(formData: { name: string, password: string }) {
+  onSubmit(userForm: NgForm) {
+    console.log(userForm.value);
 
+    // gán id
     const newUsersId = this.users
       .map(user => user.id)
       .sort((a: number, b: number) => b - a)
 
     const maxId = newUsersId[0]
-    console.log(formData);
 
-    this.users.push({
-      ...formData,
-      id: maxId +1
+    // add vào data
+     this.users.push({
+      ...userForm.value,
+      id: maxId + 1
     })
+    // this.users = this.users.filter((item) => item.id !== maxId ? this.users = userForm.value)
+    
+    
 
-    this.inputValue = {
+    userForm.resetForm({
       name: "",
       password: ""
-    }
+    })
   }
 
   onRemove(id: any) {
-    const confirm  = alert("bạn có muốn xóa không ?");
-     this.users = this.users.filter(item => item.id! == id)
+    console.log(id);
+    
+    const confirm = alert("bạn có muốn xóa không ?");
+    this.users = this.users.filter(item => item.id !== id)
+  }
+
+  onEdit(id: any) {
+    this.users.map(item => item.id == id ?
+      this.inputValue = {
+        name: item.name,
+        password: item.password
+      } : "")
+
+    // this.users = this.users.map((item) => item.id == item.formData ? formData.item)
   }
 }
