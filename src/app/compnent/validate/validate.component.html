@@ -1,1 +1,6 @@
-<p>validate works!</p>
+<div *ngIf="field.dirty">
+    <span *ngIf="field.errors?.['required']" class="text-danger"> {{key}} Không được để trống</span>
+    <span *ngIf="field.errors?.['minlength']" class="text-danger"> {{key}} phải ít nhất 4 kí tự</span>
+    <span *ngIf="field.errors?.['min']" class="text-danger">{{key}} phải ít nhất 6 kí tự</span>
+    <span *ngIf="field.errors?.['max']" class="text-danger">{{key}} phải nhỏ hơn 12 kí tự</span>
+</div>
