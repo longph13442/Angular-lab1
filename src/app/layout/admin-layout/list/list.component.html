@@ -1,0 +1,26 @@
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">desc</th>
+        <th scope="col">img</th>
+        <th scope="col" colspan="2">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr *ngFor="let key of products">
+        <td>{{key._id}}</td>
+        <td>{{key.name}}</td>
+        <td>{{key.price}}</td>
+        <td>{{key.desc}}</td>
+        <td>{{key.img}}</td>
+        <td><a routerLink="edit/{{key._id}}"><button class=" btn btn-success">Edits</button></a></td>
+        <td><button class=" btn btn-danger" (click)="onClick($event)">Remove</button></td>
+      </tr>
+     
+    </tbody>
+  </table>

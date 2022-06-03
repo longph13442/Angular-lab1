@@ -1,6 +1,13 @@
-<div class="container">
-  <h1> Danh sách</h1>
-  <h3>Name:<app-name [name]="Person"></app-name>
+<div class="">
+ 
+   <!-- phần render component -->
+   <router-outlet></router-outlet>
+  
+  <!-- phần render component -->
+  <!-- <h3>buổi 5 23/04</h3>
+  <app-user></app-user> -->
+  
+  <!-- <h3>Name:<app-name [name]="Person"></app-name>
   </h3>
   <button class=" btn btn-warning m-3" (click)="ClickBtn()">
     {{show ? 'ẩn dữ liệu' : 'hiện dữ liệu '}}
@@ -27,7 +34,7 @@
       <button class=" btn btn-success mt-3" (click)="Onsubmit()"> Submit</button>
     
   </div>
-  <app-table2 [students]="Student" *ngIf="show"></app-table2>
+  <app-table2 [students]="Student" *ngIf="show"></app-table2> -->
   <!-- <app-table2 [students] = "Student" class="{{show ? 'db' : 'dn'}}"></app-table2>  -->
 
 </div>

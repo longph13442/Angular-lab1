@@ -12,7 +12,22 @@ import { Condition1Component } from './lab1/condition1/condition1.component';
 import { Condition2Component } from './lab1/condition2/condition2.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
-import { ValidateComponent } from './compnent/validate/validate.component'; // import form
+import { ValidateComponent } from './compnent/validate/validate.component';
+import { UserComponent } from './user/user.component';
+import { ListComponent } from './user/list/list.component';
+import { UserFormComponent } from './user/user-form/user-form.component';
+import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
+import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
+import { ProductsComponent } from './layout/client-layout/products/products.component';
+import { DetailComponent } from './layout/admin-layout/detail/detail.component';
+import { CreateComponent } from './layout/admin-layout/create/create.component';
+import { UpdateComponent } from './layout/admin-layout/update/update.component'; // import form
+import { FormAdminComponent } from './layout/admin-layout/form/form.component';
+import {ListComponent as ProductListComponent} from './layout/admin-layout/list/list.component';
+
+// module sử dụng để gọi api
+import {HttpClientModule} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -24,13 +39,26 @@ import { ValidateComponent } from './compnent/validate/validate.component'; // i
     Condition1Component,
     Condition2Component,
     FormComponent,
-    ValidateComponent
+    ValidateComponent,
+    UserComponent,
+    ListComponent,
+    UserFormComponent,
+    ClientLayoutComponent,
+    AdminLayoutComponent,
+    ProductsComponent,
+    DetailComponent,
+    CreateComponent,
+    UpdateComponent,
+    FormAdminComponent,
+    ProductListComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
