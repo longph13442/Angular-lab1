@@ -5,7 +5,8 @@ const api= 'http://localhost:8000/api';
 export const environment = {
   production: false,
 
-  products: `${api}/products`
+  products: `${api}/products`,
+  signup: `${api}/signup`
 };
 
 /*

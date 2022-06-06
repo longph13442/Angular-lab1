@@ -5,3 +5,9 @@ export type TypeProducts={
     img:string,
     desc: string
 }
+export type TypeCreate={
+    name: string,
+    price: number,
+    img:string,
+    desc: string
+}

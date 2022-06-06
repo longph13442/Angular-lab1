@@ -12,6 +12,7 @@ import { Condition1Component } from './lab1/condition1/condition1.component';
 import { Condition2Component } from './lab1/condition2/condition2.component';
 import { FormComponent } from './form/form.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ValidateComponent } from './compnent/validate/validate.component';
 import { UserComponent } from './user/user.component';
 import { ListComponent } from './user/list/list.component';
@@ -27,6 +28,8 @@ import {ListComponent as ProductListComponent} from './layout/admin-layout/list/
 
 // module sử dụng để gọi api
 import {HttpClientModule} from '@angular/common/http';
+import { SignUpComponent } from './layout/sign-up/sign-up.component';
+import { SigninComponent } from './layout/signin/signin.component';
 
 
 @NgModule({
@@ -50,7 +53,9 @@ import {HttpClientModule} from '@angular/common/http';
     CreateComponent,
     UpdateComponent,
     FormAdminComponent,
-    ProductListComponent
+    ProductListComponent,
+    SignUpComponent,
+    SigninComponent
     
   ],
   imports: [
@@ -58,6 +63,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
   ],
   providers: [],

@@ -1,5 +1,6 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CanJoinGuard } from './guards/can-join.guard';
 import { AdminLayoutComponent } from './layout/admin-layout/admin-layout.component';
 import { CreateComponent } from './layout/admin-layout/create/create.component';
 import { ListComponent } from './layout/admin-layout/list/list.component';
@@ -8,6 +9,7 @@ import { ClientLayoutComponent } from './layout/client-layout/client-layout.comp
 import { HomepageComponent } from './layout/client-layout/homepage/homepage.component';
 import { ProductsDetailComponent } from './layout/client-layout/products-detail/products-detail.component';
 import { ProductsComponent } from './layout/client-layout/products/products.component';
+import { SignUpComponent } from './layout/sign-up/sign-up.component';
 
 
 const routes: Routes = [
@@ -25,7 +27,7 @@ const routes: Routes = [
   //     }
   //   ]
   // }
-  
+
   // {
   //   path:'',
   //   component:ClientLayoutComponent,
@@ -47,26 +49,38 @@ const routes: Routes = [
 
   {
     path: '',
+    component: ClientLayoutComponent,
+  },
+  {
+    path: 'signup',
+    component: SignUpComponent
+  },
+  {
+    path: 'admin',
     component: AdminLayoutComponent,
-    children:[
+    canActivate: [CanJoinGuard], // lớp bảo vệ, check quyền admin
+    children: [
       {
-        path:'',
+        path: '',
         component: ListComponent
-      },{
+      }, {
         path: 'create',
         component: CreateComponent
       },
       {
-        path:'edit/:id',
+        path: 'edit/:id',
         component: UpdateComponent
       }
     ]
   }
-  
+
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CanJoinGuard]
 })
 export class AppRoutingModule { }

@@ -19,7 +19,7 @@
         <td>{{key.desc}}</td>
         <td>{{key.img}}</td>
         <td><a routerLink="edit/{{key._id}}"><button class=" btn btn-success">Edits</button></a></td>
-        <td><button class=" btn btn-danger" (click)="onClick($event)">Remove</button></td>
+        <td><button class=" btn btn-danger" (click)="onRemove(key._id)">Remove</button></td>
       </tr>
      
     </tbody>

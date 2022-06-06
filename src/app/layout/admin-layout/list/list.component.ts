@@ -15,15 +15,22 @@ export class ListComponent implements OnInit {
   
 
   ngOnInit(): void {
-    // gán dữ liệu
+    this.onGetList();
+    
+  }
+  // show danh sasch
+  onGetList(){
     this.productsSevice.getProducts().subscribe((data) =>{
       this.products=data;
-      console.log(this.products);
     })
   }
-  onClick(id:any){
+  onRemove(id:any){
     const confirm = window.confirm("ban co muon xoas khong ?")
-    
+    if(confirm && id){
+      this.productsSevice.deleteProduct(id).subscribe((data) =>{ // xóa 
+        this.onGetList(); // cập nhật lại dữ liệu sau khi xóa
+      })
+    }
   }
 
 }

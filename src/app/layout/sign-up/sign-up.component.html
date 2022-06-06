@@ -1,0 +1,28 @@
+<body><main class="form-signin w-25 m-auto text-center mt-5">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <img class="mb-4" src="https://res.cloudinary.com/vulong/image/upload/v1649668192/uploadimg/dmfjqci1kekqv0lzcdki.png" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
+
+      <div class="form-floating my-2">
+        <input type="text" class="form-control" placeholder="longtv" formControlName="name">
+        <label for="floatingInput">Name</label>
+      </div>
+      <div class="form-floating my-2">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+        <label for="floatingInput">Email address</label>
+      </div>
+      
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+        <label for="floatingPassword">Password</label>
+      </div>
+  
+      <div class="checkbox mb-3 my-2">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" >Sign up</button>
+      <p class="mt-5 mb-3 text-muted">© 2022–2025</p>
+    </form>
+  </main></body>
